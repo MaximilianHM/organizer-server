@@ -9,4 +9,6 @@ const userSchema = new Schema({
   image: { type: String, default: "https://i.imgur.com/yWHfhiG.png" },
 });
 
-module.exports = model("User", userSchema);
+const User = model("User", userSchema);
+
+module.exports = User;

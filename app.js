@@ -21,9 +21,14 @@ app.use("/", allRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
 
-
 const userRoutes = require("./routes/user.routes");
 app.use("/", userRoutes);
+
+const categoryRoutes = require("./routes/category.routes");
+app.use("/", categoryRoutes);
+
+const taskRoutes = require("./routes/task.routes");
+app.use("/", taskRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
