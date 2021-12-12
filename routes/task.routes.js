@@ -36,19 +36,16 @@ router.get("/api/tasks", async (req, res, next) => {
   }
 });
 
-// ! should I made the route base on categoryId?
-// ! maybe not necessary
-// router.get("/api/:categoryId/:taskId", async (req, res, next) => {
-//   try {
-//     const { taskId } = req.params;
-//     const { category: categoryId } = req.body;
-//     const tasksByCategory = await Task.findById(categoryId);
+router.get("/api/tasks/:taskId", async (req, res, next) => {
+  try {
+    const { taskId } = req.params;
+    const tasksByCategory = await Task.findById(taskId);
 
-//     res.status(200).json(tasksByCategory);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+    res.status(200).json(tasksByCategory);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 router.put("/api/tasks/:taskId", async (req, res, next) => {
   try {
