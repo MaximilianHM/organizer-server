@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const Category = require("../models/category.model");
-const { isAuthenticated } = require("./../middleware/jwt.middleware");
+// const { isAuthenticated } = require("./../middleware/jwt.middleware");
 
 router.post("/api/categories", async (req, res, next) => {
   try {
-    const { categoryName } = req.body;
+    const { categoryName, usernameId } = req.body;
 
     const createdCategory = await Category.create({
       categoryName,
+      usernameId: usernameId,
       tasks: [],
     });
 

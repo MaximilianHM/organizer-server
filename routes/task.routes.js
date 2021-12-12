@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Task = require("../models/task.model");
 const Category = require("../models/category.model");
-const { isAuthenticated } = require("./../middleware/jwt.middleware");
+// const { isAuthenticated } = require("./../middleware/jwt.middleware");
 
 router.post("/api/tasks", async (req, res, next) => {
   try {
@@ -37,7 +37,7 @@ router.get("/api/tasks", async (req, res, next) => {
 });
 
 // ! should I made the route base on categoryId?
-// ! problems to display the tasks by category
+// ! maybe not necessary
 // router.get("/api/:categoryId/:taskId", async (req, res, next) => {
 //   try {
 //     const { taskId } = req.params;
@@ -50,21 +50,23 @@ router.get("/api/tasks", async (req, res, next) => {
 //   }
 // });
 
-// ! problems to update the value of models obj
 router.put("/api/tasks/:taskId", async (req, res, next) => {
   try {
     const { taskId } = req.params;
     const { taskName, status, deadLine, description } = req.body;
 
-    const updateTask = await Task.findByIdAndUpdate(taskId, [
-      { taskName },
-      { status },
-      { deadLine },
-      { description },
-      { new: true },
-    ]);
+    const taskUpdated = await Task.findByIdAndUpdate(
+      taskId,
+      {
+        taskName,
+        status,
+        deadLine,
+        description,
+      },
+      { new: true }
+    );
 
-    res.status(200).json(updateTask);
+    res.status(200).json(taskUpdated);
   } catch (error) {
     res.status(500).json(error);
   }

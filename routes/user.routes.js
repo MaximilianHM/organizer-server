@@ -19,6 +19,8 @@ router.get("/api/users/current", isAuthenticated, async (req, res, next) => {
 });
 
 // PUT /api/users/current  - Update the current user
+
+// ! CHANGE THE IMAGE PROFILE - CALUDINARY
 router.put("/api/users/current", isAuthenticated, async (req, res, next) => {
   try {
     // If the user is authenticated we can access the JWT payload via req.payload
