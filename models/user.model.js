@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   role: { type: String, enum: ["admin", "user"], default: "user" },
-  image: { type: String, default: "https://i.imgur.com/yWHfhiG.png" }, // ! CHANGE THE IMAGE PROFILE
+  image: { type: String },
 });
 
 const User = model("User", userSchema);
