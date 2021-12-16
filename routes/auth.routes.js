@@ -69,7 +69,8 @@ router.post("/auth/signup", async (req, res, next) => {
     // Send the response back
     res.status(201).json({ user: user });
   } catch (error) {
-    next(error);
+    res.status(500).json(error.message);
+    /* next(error); */
   }
 });
 
@@ -119,7 +120,7 @@ router.post("/auth/login", async (req, res, next) => {
       res.status(401).json({ message: "Unable to login the user" }); // Unathorized
     }
   } catch (error) {
-    next(error);
+    res.status(500).json(error.message);
   }
 });
 
