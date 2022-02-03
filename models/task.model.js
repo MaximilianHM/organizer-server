@@ -9,9 +9,8 @@ const taskSchema = new Schema({
     enum: ["In progress", "Done", "Canceled"],
     default: "In progress",
   },
-  deadLine: { type: Date }, // ! should be date
+  deadLine: { type: Date },
   description: { type: String },
-  // SHOULD HAVE THE USER ID TO DELEGATE THE TASK?
 });
 
 const Task = model("Task", taskSchema);
