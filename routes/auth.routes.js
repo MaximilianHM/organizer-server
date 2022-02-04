@@ -4,8 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
-const { isAuthenticated } = require("./../middleware/jwt.middleware"); // check if is isAdmin
-
+const { isAuthenticated } = require("./../middleware/jwt.middleware");
 const saltRounds = 10;
 
 router.post("/auth/signup", async (req, res, next) => {
