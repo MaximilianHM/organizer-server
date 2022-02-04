@@ -4,7 +4,6 @@ module.exports = (app) => {
   });
 
   app.use((err, req, res, next) => {
-    // always logs the error
     console.error("ERROR", req.method, req.path, err);
 
     // only render if the error ocurred before sending the response
