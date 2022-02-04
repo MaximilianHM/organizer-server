@@ -7,7 +7,7 @@ const categorySchema = new Schema({
     default: "New Category",
     requery: true,
     minLength: [3],
-  }, // !max 20 characters
+  },
   usernameId: { type: Schema.Types.ObjectId, ref: "User" },
   tasks: [{ type: Schema.Types.ObjectId, ref: "Task" }],
 });
