@@ -16,16 +16,16 @@ require("./config")(app);
 
 // 👇 Start handling routes here
 const allRoutes = require("./routes");
-app.use(allRoutes);
+app.use("/", allRoutes);
 
 const authRoutes = require("./routes/auth.routes");
-app.use(authRoutes);
+app.use("/", authRoutes);
 
 const userRoutes = require("./routes/user.routes");
-app.use(userRoutes);
+app.use("/", userRoutes);
 
 const categoryRoutes = require("./routes/category.routes");
-app.use(categoryRoutes);
+app.use("/", categoryRoutes);
 
 const taskRoutes = require("./routes/task.routes");
 app.use("/", taskRoutes);
